@@ -14,5 +14,5 @@ black = "*"
 python_version = "3.8"
 
 [scripts]
-lint = "pylint ."
+lint = "pylint tests src ./main.py "
 format = "black ."
