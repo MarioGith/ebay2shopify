@@ -1,16 +1,43 @@
 """Module providing os."""
 import os
 from ebaysdk.trading import Connection as Trading
+from src.ebay.exceptions import (
+    TokenNotDefined,
+    AppIdNotDefined,
+    CertIdNotDefined,
+    DevIdNotDefined,
+)
 
 
 class EbayData:
     """Gather eBay data from"""
 
     def __init__(self):
-        self.app_id = os.environ["APP_ID"]
-        self.cert_id = os.environ["CERT_ID"]
-        self.dev_id = os.environ["DEV_ID"]
-        self.token = os.environ["TOKEN"]
+
+        # Raise a custom exception if TOKEN is not defined
+        try:
+            self.token = os.environ["TOKEN"]
+        except KeyError as err:
+            raise TokenNotDefined from err
+
+        # Raise a custom exception if APP_ID is not defined
+        try:
+            self.app_id = os.environ["APP_ID"]
+        except KeyError as err:
+            raise AppIdNotDefined from err
+
+        # Raise a custom exception if CERT_ID is not defined
+        try:
+            self.cert_id = os.environ["CERT_ID"]
+        except KeyError as err:
+            raise CertIdNotDefined from err
+
+        # Raise a custom exception if DEV_ID is not defined
+        try:
+            self.dev_id = os.environ["DEV_ID"]
+        except KeyError as err:
+            raise DevIdNotDefined from err
+
         self.api = Trading(
             appid=self.app_id,
             devid=self.dev_id,
@@ -75,5 +102,4 @@ class EbayData:
 
 if __name__ == "__main__":
     ebay_data = EbayData()
-    active = ebay_data.get_items_ids("AcList")
-    print(active)
+    print(ebay_data.token)
