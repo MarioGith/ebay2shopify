@@ -1,1 +1,1 @@
-import pytest
+"""Module providing test."""
