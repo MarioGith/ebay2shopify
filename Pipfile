@@ -7,12 +7,15 @@ name = "pypi"
 pylint = "*"
 pre-commit = "*"
 black = "*"
+ebaysdk = "*"
 
 [dev-packages]
+pytest = "*"
 
 [requires]
 python_version = "3.8"
 
 [scripts]
-lint = "pylint tests ./main.py "
+lint = "pylint src tests ./main.py "
 format = "black ."
+test = "pytest"
