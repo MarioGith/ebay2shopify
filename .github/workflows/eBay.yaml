@@ -62,6 +62,10 @@ jobs:
           CERT_ID: ${{ secrets.CERT_ID }}
           DEV_ID: ${{ secrets.DEV_ID }}
           TOKEN: ${{ secrets.TOKEN }}
+          API_KEY: ${{ secrets.API_KEY }}
+          SECRET: ${{ secrets.SECRET }}
+          SHOP_URL: ${{ secrets.SHOP_URL }}
+          SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
 
       - name: Run linter
         run: |

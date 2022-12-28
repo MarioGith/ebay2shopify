@@ -1,6 +1,6 @@
 """Module providing test."""
 import pytest
-from src.ebay.ebay_data import EbayData
+from src.ebayapi.ebay_data import EbayData
 
 
 def test_items_ids_exception():
