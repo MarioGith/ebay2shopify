@@ -1,7 +1,7 @@
-"""Module providing os."""
+"""Module to get eBay data"""
 import os
 from ebaysdk.trading import Connection as Trading
-from src.ebay.exceptions import (
+from src.ebayapi.exceptions import (
     TokenNotDefined,
     AppIdNotDefined,
     CertIdNotDefined,
